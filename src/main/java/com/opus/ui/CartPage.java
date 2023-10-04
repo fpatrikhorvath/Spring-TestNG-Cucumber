@@ -10,7 +10,7 @@ public class CartPage extends BasePage {
     /**
      * Returns the visibility state of the cart page.
      *
-     * @return
+     * @return true if the page is initialized
      */
     @Override
     protected boolean isInitialized() {

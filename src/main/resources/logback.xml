@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="LOG_DIR" source="spring.log.dir" defaultValue="logs" />
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/app.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/app.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Set the log level for your specific package(s) or class(es) to a higher level, e.g., WARN or ERROR, to exclude INFO and DEBUG messages -->
+    <logger name="com.example" level="WARN" additivity="false">
+        <appender-ref ref="fileAppender" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="fileAppender" />
+    </root>
+</configuration>
