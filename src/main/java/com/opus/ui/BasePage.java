@@ -20,7 +20,7 @@ public abstract class BasePage extends WebDriverFactory {
      *
      * @return true in case the page is visible by the driver, false in case it's not.
      */
-    protected abstract boolean isInitialized();
+    protected abstract boolean isInitialized();//TODO
 
     /**
      * Enter the given text to the given element.
